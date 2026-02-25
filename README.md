@@ -101,12 +101,6 @@ List available font families inside the running container:
 docker exec virt-manager sh -lc "fc-list : family | tr ',' '\n' | sed 's/^ *//;s/ *$//' | sort -u"
 ```
 
-Show a short top list:
-
-```bash
-docker exec virt-manager sh -lc "fc-list : family | tr ',' '\n' | sed 's/^ *//;s/ *$//' | sort -u | head -n 50"
-```
-
 `XTERM_FONT_SIZE` is numeric (Xft point size). Typical values: `12`, `14`, `16`, `18`, `20`.
 
 Example override in [docker-compose.yml](docker-compose.yml):
