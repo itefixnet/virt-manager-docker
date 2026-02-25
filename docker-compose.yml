@@ -1,0 +1,22 @@
+services:
+  virt-manager:
+    build:
+      context: .
+      args:
+        USERNAME: app
+        UID: 1000
+        GID: 1000
+    container_name: virt-manager
+    ports:
+      - "5901:5901"
+    environment:
+      VNC_PASSWORD: changeme
+      VNC_GEOMETRY: 1280x800
+      VNC_DEPTH: 24
+      XTERM_FONT: Monospace
+      XTERM_FONT_SIZE: 14
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - /var/run/libvirt:/var/run/libvirt
+    restart: unless-stopped
