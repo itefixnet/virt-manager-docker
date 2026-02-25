@@ -1,6 +1,10 @@
 # virt-manager-docker
 
+![virt-manager-docker](virt-manager-docker.jpg)
+
 Minimal Docker container for running `virt-manager` over XFCE + VNC.
+
+Docker Hub image: [itefixnet/virt-manager](https://hub.docker.com/repository/docker/itefixnet/virt-manager)
 
 ## What this provides
 
@@ -34,10 +38,32 @@ docker build -t virt-manager \
   .
 ```
 
+## Pull from Docker Hub
+
+```bash
+docker pull itefixnet/virt-manager:latest
+```
+
 ## Run (Compose recommended)
+
+Use local build:
 
 ```bash
 docker compose up -d --build
+```
+
+Use Docker Hub image:
+
+```bash
+docker run -d \
+  --name virt-manager \
+  --security-opt seccomp=unconfined \
+  -p 5901:5901 \
+  -e VNC_PASSWORD=changeme \
+  -e VNC_GEOMETRY=1280x800 \
+  -e VNC_DEPTH=24 \
+  -v /var/run/libvirt:/var/run/libvirt \
+  itefixnet/virt-manager:latest
 ```
 
 Stop:
