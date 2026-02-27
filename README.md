@@ -4,7 +4,7 @@
 
 Minimal Docker container for running `virt-manager` over XFCE + VNC.
 
-Docker Hub image: [itefixnet/virt-manager](https://hub.docker.com/repository/docker/itefixnet/virt-manager)
+Docker Hub image: [itefixnet/virt-manager](https://hub.docker.com/r/itefixnet/virt-manager)
 
 ## What this provides
 
